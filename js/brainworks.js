@@ -15,6 +15,7 @@
         html.removeClass('no-js').addClass('js');
 
         scrollTop('.js-scroll-top');
+        sidebarAccordion();
 
         // stick footer
         var footerHeight = $('.footer').outerHeight() + 20;
@@ -28,7 +29,7 @@
             if (window.innerWidth >= 630) {
                 removeAllStyles($(".js-menu"));
             }
-        })
+        });
         // Buy one click
         var oneClick = $('.ordering-ru');
         if (oneClick.length) {
@@ -48,6 +49,41 @@
         // end buy one click
 
     });
+
+    /**
+     * Sidebar Accordion
+     *
+     * @example
+     * sidebarAccordion();
+     *
+     * @author Fedor Kudinov <brothersrabbits@mail.ru>
+     *
+     * @returns {void}
+     */
+    function sidebarAccordion() {
+        var sidebarMenu = $('.sidebar .widget_nav_menu');
+        var items = sidebarMenu.find('li');
+        var subMenu = items.find('.sub-menu');
+
+        if (subMenu.length) {
+            subMenu.each(function (index, value) {
+                $(value).parent().first().append('<i class="trigger"></i>');
+            });
+        }
+
+        var classAction = 'is-opened';
+        var trigger = items.find('.trigger');
+
+        trigger.on('click', function () {
+            var el = $(this), parent = el.parent();
+
+            if (parent.hasClass(classAction)) {
+                parent.removeClass(classAction);
+            } else {
+                parent.addClass(classAction);
+            }
+        });
+    }
 
     /**
      * Hamburger Menu
@@ -76,36 +112,36 @@
         });
     }
 
-    function anotherHamburgerMenu (menuElement, hamburgerElement, closeTrigger) {
+    function anotherHamburgerMenu(menuElement, hamburgerElement, closeTrigger) {
         var Elements = {
             menu: $(menuElement),
             button: $(hamburgerElement),
             close: $(closeTrigger)
-        }
+        };
 
         Elements.button.add(Elements.close).on('click', function (ev) {
-            ev.preventDefault()
-            ev.stopPropagation()
+            ev.preventDefault();
+            ev.stopPropagation();
             Elements.menu.toggleClass('is-active');
-        })
+        });
         var arrowOpener = function (parent) {
             return $("<button />")
                 .addClass("menu-item-has-children-arrow")
                 .html('<i class="fa fa-chevron-down"></i>')
                 .click(function (ev) {
-                    parent.children(".sub-menu").eq(0).slideToggle(300)
-                    var i = $(this).find("i.fa")
+                    parent.children(".sub-menu").eq(0).slideToggle(300);
+                    var i = $(this).find("i.fa");
                     if (i.hasClass("fa-chevron-down")) i.removeClass("fa-chevron-down").addClass("fa-chevron-up");
                     else i.removeClass("fa-chevron-up").addClass("fa-chevron-down");
                 })
-        }
-        var items = Elements.menu.find('.menu-item-has-children, .sub-menu-item-has-children')
-        for (var i = 0 ; i < items.length ; i++) {
+        };
+        var items = Elements.menu.find('.menu-item-has-children, .sub-menu-item-has-children');
+        for (var i = 0; i < items.length; i++) {
             items.eq(i).append(arrowOpener(items.eq(i)))
         }
     }
 
-    function removeAllStyles (elementParent) {
+    function removeAllStyles(elementParent) {
         elementParent.find(".sub-menu").removeAttr("style")
     }
 
