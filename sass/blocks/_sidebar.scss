@@ -1,0 +1,124 @@
+.sidebar {
+    .widget_nav_menu {
+    @include box-shadow(0 0 46px rgba(#000, .07));
+    padding: 15px;
+        
+        .sub-current-menu-item {
+            text-decoration: none;
+        }
+        
+        li {
+            
+            &:hover a{
+                text-decoration: none;
+            }
+        }
+    
+    .menu {
+        .menu-item {
+            a, span {
+                margin-bottom: 4px;
+                display: block;
+                border-bottom: 1px solid #d2e4ff;
+                padding-bottom: 4px;
+                font-size: 14px;
+                text-decoration: none;
+            }
+        }
+        
+        .sub-menu {
+            padding-left: 15px;
+            
+            .sub-menu-item  {
+                
+                &::before {
+                        content: "\f068";
+                        display: block;
+                        padding: 0 7px 0 0;
+                        font-family: 'FontAwesome';
+                        color: $themeColorTwo;
+                        float: left;
+                        margin-left: 5px;
+                        font-size: 10px;
+                    }
+            }
+            
+            .sub-menu-item-has-children {
+                border: none;
+            }
+        }
+    }
+}
+}
+
+.widget {
+    &-item,
+    &-item a,
+    &-item p,
+    &-item li,
+    &-title {
+        color: #fff;
+        font-size: 17px;
+        line-height: 1.5;
+    }
+
+    &-item {
+        margin-bottom: 20px;
+
+        a {
+            text-decoration: none;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+    }
+
+    &-title {
+        text-transform: uppercase;
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    &_nav_menu {
+        ul {
+        }
+
+        li {
+            margin-bottom: 3px;
+
+            &:hover,
+            &.menu-item-current {
+                a {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .sitemap {
+            margin-top: 65px;
+            padding-top: 20px;
+            border-top: 1px solid #fff;
+        }
+    }
+
+    &_text,
+    &_custom_html {
+        li {
+            margin-bottom: 15px;
+        }
+
+        .social {
+            margin-top: 20px;
+            padding-left: 15px;
+
+            li {
+                margin-bottom: 0;
+            }
+
+            a {
+                font-size: 20px;
+            }
+        }
+    }
+}

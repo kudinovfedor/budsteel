@@ -1,0 +1,27 @@
+@mixin button-style {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    border: 0;
+    border-radius: $borderRadius;
+    background-color: $buttonBgColor;
+    color: $buttonFontColor;
+    text-transform: none;
+    text-align: center;
+    font-weight: normal;
+    @include smooth_animation;
+
+
+    &:hover {
+        color: $buttonFontColor;
+        background-color: $buttonBgColorActive;
+    }
+
+    &:active {
+        background-color: $buttonBgColor;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}

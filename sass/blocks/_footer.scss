@@ -1,0 +1,121 @@
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.pre-footer {
+    padding: 30px 0;
+    background-color: $preFooterBgColor;
+    color: $preFooterFontColor;
+}
+
+.copyright {
+    padding: 14px 0;
+    background-color: $footerBgColor;
+    text-align: center;
+    color: $footerFontColor;
+
+    a {
+        color: $footerFontColor;
+        text-decoration: underline;
+
+        &:hover {
+            color: $footerLinkColorActive;
+        }
+    }
+}
+
+.social {
+    @extend %reset-list;
+
+    &,
+    &-item {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &-item {
+        margin: 0 10px;
+    }
+
+    &-link {
+        display: block;
+        font-size: 20px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    &-link,
+    .fa {
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .widget {
+        &-item {
+            &:nth-child(2n+1) {
+                clear: left;
+            }
+        }
+
+        &_nav_menu {
+            .sitemap {
+                margin-top: 5px;
+                padding-top: 5px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .pre-footer {
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .widget {
+        &-item {
+            &,
+            a,
+            p,
+            li {
+                font-size: 14px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        &_nav_menu {
+            li {
+                display: inline-block;
+                margin-right: 15px;
+            }
+
+            .sitemap {
+                margin-top: 0;
+                padding-top: 0;
+                border-top: 0;
+            }
+        }
+
+        &_text,
+        &_custom_html {
+            .social {
+                margin-top: 10px;
+                padding-left: 0;
+            }
+        }
+    }
+}
