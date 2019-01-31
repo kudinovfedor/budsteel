@@ -67,7 +67,12 @@
 
         if (subMenu.length) {
             subMenu.each(function (index, value) {
-                $(value).parent().first().append('<i class="trigger"></i>');
+                var parent = $(value).parent();
+                if (index !== 0) {
+                    parent.first().append('<i class="trigger"></i>');
+                } else {
+                    parent.addClass('is-opened');
+                }
             });
         }
 
